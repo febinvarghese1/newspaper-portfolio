@@ -37,68 +37,30 @@ const HeroContent = () => {
     }
   };
 
-  const imageHover = {
-    hover: {
-      scale: 1.02,
-      boxShadow: "-12px 6px 0px rgba(0, 0, 0, 1)",
-      transition: {
-        type: "spring" as const,
-        stiffness: 300,
-        damping: 20
-      }
-    }
-  };
-
-  const cardHover = {
-    hover: {
-      y: -5,
-      boxShadow: "-12px 8px 0px rgba(0, 0, 0, 1)",
-      transition: {
-        type: "spring" as const,
-        stiffness: 400,
-        damping: 25
-      }
-    }
-  };
-
-  const iconHover = {
-    hover: {
-      scale: 1.1,
-      rotate: 5,
-      transition: {
-        type: "spring" as const,
-        stiffness: 400,
-        damping: 15
-      }
-    }
-  };
-
   return (
     <motion.section 
-      className="my-4"
+      className="my-2 sm:my-4 px-2 sm:px-4 sm:py-10"
       initial="hidden"
       animate="visible"
       variants={staggerContainer}
     >
       <motion.h1 
-        className="font-[FG-condensed] uppercase text-[5.2rem] pt-4 leading-[1]"
+        className="font-[FG-condensed] uppercase text-2xl sm:text-3xl md:text-[3.5rem] lg:text-[4rem] xl:text-[6rem]  2xl:text-[5rem] py-4 sm:pt-4 leading-[1]"
         variants={fadeInUp}
       >
         An Artisan of the UI Interface and Experience
       </motion.h1>
       <motion.div 
-        className="flex flex-col lg:flex-row gap-8"
+        className="flex flex-col items-center sm:items-start md:flex-row gap-4 sm:gap-6 lg:gap-8"
         variants={staggerContainer}
       >
         <motion.img
           src={heroImage.src}
           alt="hero-image"
           style={{
-            height: "580px",
-            width: "570px",
             objectFit: "cover"
           }}
-          className="border-[8px] border-black w-full max-w-[570px] h-auto"
+          className="border-[4px] sm:border-[6px] lg:border-[8px] border-black w-full max-w-[460px] h-auto aspect-[4/5] md:aspect-[1/2.22] xl:aspect-[4/5] sm:object-top "
           variants={fadeInUp}
           whileHover={{
             scale: 1.02,
@@ -111,21 +73,21 @@ const HeroContent = () => {
           }}
         />
         <motion.div 
-          className="flex flex-col lg:flex-row gap-6"
+          className="flex flex-col items-center pb-10 sm:pb-0 xl:items-start xl:flex-row gap-4 sm:gap-6"
           variants={staggerContainer}
         >
           <motion.div 
-            className="flex flex-col gap-4"
+            className="flex flex-col gap-3 sm:gap-4"
             variants={fadeInUp}
           >
             <motion.h1 
-              className="font-[FG-condensed] uppercase text-[5.2rem] leading-[1]"
+              className="font-[FG-condensed] uppercase text-xl sm:text-2xl md:text-3xl lg:text-5xl xl:text-[3rem] 2xl:text-[5rem] leading-[1]"
               variants={fadeInUp}
             >
               Febin Varghese Crafts Code into Compelling Interfaces
             </motion.h1>
             <motion.p 
-              className="font-[clarendon] text-[1.4rem] text-wrap max-w-[900px] font-medium text-[#2b2a2a]"
+              className="font-[clarendon] text-xs xs:text-sm sm:text-md  lg:text-xl text-wrap max-w-[900px] font-medium text-[#2b2a2a]"
               variants={fadeInUp}
             >
               {`${monthName}, ${day} ${year} — Febin Varghese Talks About the Beauty
@@ -141,29 +103,37 @@ const HeroContent = () => {
             </motion.p>
           </motion.div>
           <motion.div
-            className="flex flex-col justify-between border-black w-[420px] border-[6px] relative font-[clarendon]"
+            className="flex flex-col justify-between border-black w-full max-w-[280px] border-[2px] sm:border-[4px] xl:border-[6px] relative font-[clarendon]"
             style={{
-              boxShadow: "-10px 5px 0px rgba(0, 0, 0, 1)"
+              boxShadow: "-6px 3px 0px rgba(0, 0, 0, 1)"
             }}
             variants={fadeInUp}
-        
+            whileHover={{
+              y: -5,
+              boxShadow: "-8px 5px 0px rgba(0, 0, 0, 1)",
+              transition: {
+                type: "spring" as const,
+                stiffness: 400,
+                damping: 25
+              }
+            }}
           >
             <motion.div 
-              className="p-6 change-cursor"
+              className="p-3 sm:p-4 xl:p-6 change-cursor"
               variants={fadeInUp}
             >
               <motion.h1 
-                className="text-3xl font-[applewood]"
+                className="text-lg sm:text-2xl xl:text-3xl font-[applewood]"
                 variants={fadeInUp}
               >
                 Contacts
               </motion.h1>
               <motion.div 
-                className="flex flex-col gap-4 text-xl pt-6"
+                className="flex flex-col gap-2 sm:gap-3 xl:gap-4 text-sm sm:text-base xl:text-xl pt-3 sm:pt-4 xl:pt-6"
                 variants={staggerContainer}
               >
                 <motion.div 
-                  className="flex gap-2 items-center hover:bg-black/5 p-2 rounded transition-colors"
+                  className="flex gap-1 sm:gap-2 items-center hover:bg-black/5 p-1 sm:p-2 rounded transition-colors"
                   variants={fadeInUp}
                 >
                   <motion.div 
@@ -177,12 +147,12 @@ const HeroContent = () => {
                       }
                     }}
                   >
-                    <MailIcon size={24} />
+                    <MailIcon size={20} className="sm:w-6 sm:h-6 lg:w-6 lg:h-6" />
                   </motion.div>
                   Mail
                 </motion.div>
                 <motion.div 
-                  className="flex gap-2 items-center hover:bg-black/5 p-2 rounded transition-colors"
+                  className="flex gap-1 sm:gap-2 items-center hover:bg-black/5 p-1 sm:p-2 rounded transition-colors"
                   variants={fadeInUp}
                 >
                   <motion.div 
@@ -196,12 +166,12 @@ const HeroContent = () => {
                       }
                     }}
                   >
-                    <Twitter size={24} />
+                    <Twitter size={20} className="sm:w-6 sm:h-6 lg:w-6 lg:h-6" />
                   </motion.div>
                   X ( Twitter )
                 </motion.div>
                 <motion.div 
-                  className="flex gap-2 items-center hover:bg-black/5 p-2 rounded transition-colors"
+                  className="flex gap-1 sm:gap-2 items-center hover:bg-black/5 p-1 sm:p-2 rounded transition-colors"
                   variants={fadeInUp}
                 >
                   <motion.div 
@@ -215,12 +185,12 @@ const HeroContent = () => {
                       }
                     }}
                   >
-                    <Github size={24} />
+                    <Github size={20} className="sm:w-6 sm:h-6 lg:w-6 lg:h-6" />
                   </motion.div>
                   Github
                 </motion.div>
                 <motion.div 
-                  className="flex gap-2 items-center hover:bg-black/5 p-2 rounded transition-colors"
+                  className="flex gap-1 sm:gap-2 items-center hover:bg-black/5 p-1 sm:p-2 rounded transition-colors"
                   variants={fadeInUp}
                 >
                   <motion.div 
@@ -234,7 +204,7 @@ const HeroContent = () => {
                       }
                     }}
                   >
-                    <LinkedinIcon size={24} />
+                    <LinkedinIcon size={20} className="sm:w-6 sm:h-6 lg:w-6 lg:h-6" />
                   </motion.div>
                   Linkedin
                 </motion.div>
@@ -242,17 +212,17 @@ const HeroContent = () => {
             </motion.div>
 
             <motion.div 
-              className="p-5 bg-black h-auto"
+              className="p-3 sm:p-4 xl:p-5 bg-black h-auto"
               variants={fadeInUp}
             >
               <motion.h1 
-                className="text-3xl font-[applewood] text-center text-[#d7c6a7]"
+                className="text-lg sm:text-xl xl:text-2xl 2xl:text-3xl font-[applewood] text-center text-[#d7c6a7]"
                 variants={fadeInUp}
               >
                 Urgent!!
               </motion.h1>
               <motion.p 
-                className="text-2xl text-[#d7c6a7] py-8"
+                className="text-sm sm:text-base xl:text-lg 2xl:text-2xl text-[#d7c6a7] py-4 sm:py-6 xl:py-8"
                 variants={fadeInUp}
               >
                 Help needed! This developer can't center a div

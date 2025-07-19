@@ -50,9 +50,9 @@ const ExperienceSection = () => {
     <section className="w-full">
       <Separator height={6} width={100} color="black" verticalSpacing={2} />
       <Separator height={1} width={100} color="black" />
-      <div className="flex items-start justify-between w-full">
-        <div className="w-full">
-          <h1 className="text-8xl p-4 font-[CloisterBlack]">Experiences</h1>
+      <div className="flex flex-col xl:flex-row items-start justify-between w-full">
+        <div className="w-full xl:w-1/2">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl p-2 sm:p-4 font-[CloisterBlack]">Experiences</h1>
           <Separator height={1} width={100} color="black" />
 
           <div className="flex flex-col">
@@ -69,8 +69,8 @@ const ExperienceSection = () => {
             ))}
           </div>
         </div>
-        <div className="w-[6px] bg-black self-stretch" />
-        <div className="w-full">
+        <div className="hidden xl:block w-[6px] bg-black self-stretch mx-4" />
+        <div className="w-full xl:w-1/2">
           <div className="flex flex-col gap-4">
             <SkillsCard />
             <AwardCard />
@@ -98,38 +98,37 @@ const SkillsCard = () => {
 
   return (
     <div className="flex flex-col">
-      <h1 className="text-8xl p-4 font-[CloisterBlack] pl-10">Skills</h1>
+      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl p-2 sm:p-4 font-[CloisterBlack] xl:pl-10">Skills</h1>
       <Separator height={1} width={100} color="black" />
-      <div className="flex gap-8 px-10 py-8">
+      <div className="flex flex-col xl:flex-row gap-4 xl:gap-8 p-2 sm:p-4 xl:px-10 xl:py-8">
         <img
           src={Coding.src}
           alt="coding"
+          className="w-full max-w-[250px] h-[250px] mx-auto xl:mx-0"
           style={{
-            width: "300px",
-            height: "300px",
             objectFit: "cover",
             filter: "sepia(0.8)"
           }}
         />
-        <div className="flex flex-col gap-4">
-          <h2 className="text-4xl font-[FG-condensed] leading-[1] border-b-4 border-black pb-2">
+        <div className="flex flex-col gap-3 xl:gap-4">
+          <h2 className="text-xl sm:text-2xl md:text-3xl xl:text-4xl font-[FG-condensed] leading-[1] border-b-2 sm:border-b-4 border-black pb-2">
             TECHNICAL EXPERTISE
           </h2>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 xl:gap-4">
             {skills.map((skill, index) => (
-              <div key={index} className="flex items-center gap-3">
-                <div className="w-3 h-3 bg-black rounded-full"></div>
-                <span className="text-2xl font-[clarendon] text-[#212121] tracking-wide">
+              <div key={index} className="flex items-center gap-2 xl:gap-3">
+                <div className="w-2 h-2 xl:w-3 xl:h-3 bg-black rounded-full"></div>
+                <span className="text-sm sm:text-base md:text-lg xl:text-xl 2xl:text-2xl font-[clarendon] text-[#212121] tracking-wide">
                   {skill}
                 </span>
               </div>
             ))}
           </div>
-          <div className="mt-6 p-4 border-4 border-black">
-            <p className="text-lg font-[clarendon] text-[#212121] leading-relaxed">
+          <div className="mt-4 xl:mt-6 p-3 xl:p-4 border-2 sm:border-4 border-black">
+            <p className="text-sm sm:text-base xl:text-lg font-[clarendon] text-[#212121] leading-relaxed">
             "All our dreams can come true, if we have the courage to pursue them."
             </p>
-            <p className="text-sm font-[clarendon] text-[#666] mt-2 italic">
+            <p className="text-xs sm:text-sm font-[clarendon] text-[#666] mt-2 italic">
               - Walt Disney
             </p>
           </div>
@@ -162,43 +161,42 @@ const AwardCard = () => {
     <Separator height={1} width={100} color="black" verticalSpacing={2}/>
     </div>
     <div className="flex flex-col gap-4">
-      <h1 className="text-8xl p-4 font-[CloisterBlack] pl-10">Awards</h1>
+      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl p-2 sm:p-4 font-[CloisterBlack] xl:pl-10">Awards</h1>
       <Separator height={1} width={100} color="black" verticalSpacing={2}/>
-      <div className="flex gap-8 px-10 py-8">
+      <div className="flex flex-col xl:flex-row gap-4 xl:gap-8 p-2 sm:p-4 xl:px-10 xl:py-8">
         <img
           src={Award.src}
           alt="award-trophy"
+          className="w-full max-w-[250px] h-[250px]  mx-auto xl:mx-0"
           style={{
-            width: "300px",
-            height: "300px",
             objectFit: "cover",
             filter: "sepia(0.8)"
           }}
         />
-        <div className="flex flex-col gap-6">
-          <h2 className="text-4xl font-[FG-condensed] leading-[1] border-b-4 border-black pb-2">
+        <div className="flex flex-col gap-4 xl:gap-6">
+          <h2 className="text-xl sm:text-2xl md:text-3xl xl:text-4xl font-[FG-condensed] leading-[1] border-b-2 sm:border-b-4 border-black pb-2">
             RECOGNITIONS & HONORS
           </h2>
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4 xl:gap-6">
             {awards.map((award, index) => (
-              <div key={index} className="border-l-4 border-black pl-6">
-                <h3 className="text-3xl font-[FG-condensed] leading-[1] text-black">
+              <div key={index} className="border-l-2 sm:border-l-4 border-black pl-3 xl:pl-6">
+                <h3 className="text-lg sm:text-xl md:text-2xl xl:text-3xl font-[FG-condensed] leading-[1] text-black">
                   {award.title}
                 </h3>
-                <p className="text-xl font-[clarendon] text-[#212121] mt-1">
+                <p className="text-sm sm:text-base md:text-lg xl:text-xl font-[clarendon] text-[#212121] mt-1">
                   {award.company} - {award.date}
                 </p>
-                <p className="text-lg font-[clarendon] text-[#666] mt-2 italic">
+                <p className="text-xs sm:text-sm md:text-base xl:text-lg font-[clarendon] text-[#666] mt-2 italic">
                   {award.description}
                 </p>
               </div>
             ))}
           </div>
-          <div className="mt-4 p-4 border-4 border-black">
-            <p className="text-lg font-[clarendon] text-[#212121] leading-relaxed">
+          <div className="mt-4 p-3 xl:p-4 border-2 sm:border-4 border-black">
+            <p className="text-sm sm:text-base xl:text-lg font-[clarendon] text-[#212121] leading-relaxed">
               "It Always Seems Impossible Until It's Done"
             </p>
-            <p className="text-sm font-[clarendon] text-[#666] mt-2 italic">
+            <p className="text-xs sm:text-sm font-[clarendon] text-[#666] mt-2 italic">
               - Nelson Mandela
             </p>
           </div>

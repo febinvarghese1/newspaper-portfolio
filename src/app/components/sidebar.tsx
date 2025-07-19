@@ -1,7 +1,17 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Home, User, Briefcase, FileText, Mail, Github, Linkedin, Twitter } from "lucide-react";
+import {
+  X,
+  Home,
+  User,
+  Briefcase,
+  FileText,
+  Mail,
+  Github,
+  Linkedin,
+  Twitter
+} from "lucide-react";
 import Link from "next/link";
 
 interface SidebarProps {
@@ -16,38 +26,38 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
       transition: {
         type: "spring" as const,
         stiffness: 300,
-        damping: 30,
-      },
+        damping: 30
+      }
     },
     open: {
       x: 0,
       transition: {
         type: "spring" as const,
         stiffness: 300,
-        damping: 30,
-      },
-    },
+        damping: 30
+      }
+    }
   };
 
   const overlayVariants = {
     closed: {
       opacity: 0,
       transition: {
-        duration: 0.2,
-      },
+        duration: 0.2
+      }
     },
     open: {
       opacity: 1,
       transition: {
-        duration: 0.3,
-      },
-    },
+        duration: 0.3
+      }
+    }
   };
 
   const menuItemVariants = {
     closed: {
       x: 50,
-      opacity: 0,
+      opacity: 0
     },
     open: (i: number) => ({
       x: 0,
@@ -56,9 +66,9 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
         type: "spring" as const,
         stiffness: 300,
         damping: 30,
-        delay: i * 0.1,
-      },
-    }),
+        delay: i * 0.1
+      }
+    })
   };
 
   const navigationItems = [
@@ -66,13 +76,13 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
     { icon: User, label: "About", href: "/#about" },
     { icon: Briefcase, label: "Experience", href: "/#experience" },
     { icon: FileText, label: "Projects", href: "/#projects" },
-    { icon: Mail, label: "Contact", href: "/#contact" },
+    { icon: Mail, label: "Contact", href: "/#contact" }
   ];
 
   const socialItems = [
     { icon: Github, label: "GitHub", href: "https://github.com" },
     { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
-    { icon: Twitter, label: "Twitter", href: "https://twitter.com" },
+    { icon: Twitter, label: "Twitter", href: "https://twitter.com" }
   ];
 
   return (
@@ -91,20 +101,24 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
 
           {/* Sidebar */}
           <motion.div
-            className="fixed right-0 top-0 h-screen w-80 max-w-[80vw] bg-gradient-to-b from-[#d9c7a6] to-[#f5f5dc] shadow-2xl z-50 border-l-4 border-black flex flex-col overflow-hidden"
+            className="fixed right-0 top-0 h-screen w-full max-w-[320px] sm:max-w-[375px] md:max-w-[425px] lg:w-80 bg-gradient-to-b from-[#d9c7a6] to-[#f5f5dc] shadow-2xl z-50 border-l-2 sm:border-l-4 border-black flex flex-col overflow-hidden"
             variants={sidebarVariants}
             initial="closed"
             animate="open"
             exit="closed"
-            transition={{ type: "spring" as const, stiffness: 400, damping: 30 }}
+            transition={{
+              type: "spring" as const,
+              stiffness: 400,
+              damping: 30
+            }}
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-6 border-b-4 border-black">
+            <div className="flex items-center justify-between p-3 sm:p-4 lg:p-6 border-b-2 sm:border-b-4 border-black">
               <div className="flex flex-col items-center">
-                <p className="text-xl font-[applewood] px-2 py-1 bg-black text-[#d9c7a6]">
+                <p className="text-sm sm:text-base lg:text-xl font-[applewood] px-1 sm:px-2 py-1 bg-black text-[#d9c7a6]">
                   Special
                 </p>
-                <p className="text-xl font-[applewood] text-black p-1 border-b-2 border-black">
+                <p className="text-sm sm:text-base lg:text-xl font-[applewood] text-black p-1 border-b-2 border-black">
                   Edition
                 </p>
               </div>
@@ -112,15 +126,15 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                 whileHover={{ scale: 1.1, rotate: 90 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={onClose}
-                className="p-2 hover:bg-black/10 rounded-full transition-colors"
+                className="p-1 sm:p-2 hover:bg-black/10 rounded-full transition-colors"
               >
-                <X size={24} />
+                <X size={20} className="sm:w-6 sm:h-6 lg:w-6 lg:h-6" />
               </motion.button>
             </div>
 
             {/* Navigation */}
-            <nav className="flex-1 overflow-y-auto p-6">
-              <div className="space-y-4">
+            <nav className="flex-1 overflow-y-auto p-3 sm:p-4 lg:p-6">
+              <div className="space-y-2 sm:space-y-3 lg:space-y-4">
                 {navigationItems.map((item, index) => (
                   <motion.div
                     key={item.label}
@@ -133,15 +147,18 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                     <Link
                       href={item.href}
                       onClick={onClose}
-                      className="flex items-center gap-4 p-4 rounded-lg hover:bg-black/10 transition-colors group"
+                      className="flex  change-cursor items-center gap-2 sm:gap-3 lg:gap-4 p-2 sm:p-3 lg:p-4 rounded-lg hover:bg-black/10 transition-colors group"
                     >
                       <motion.div
                         whileHover={{ scale: 1.2, rotate: 5 }}
-                        className="p-2 bg-black/10 rounded-lg group-hover:bg-black/20 transition-colors"
+                        className="p-1 sm:p-2 bg-black/10 rounded-lg group-hover:bg-black/20 transition-colors"
                       >
-                        <item.icon size={20} />
+                        <item.icon
+                          size={18}
+                          className="sm:w-5 sm:h-5 lg:w-5 lg:h-5"
+                        />
                       </motion.div>
-                      <span className="font-[CloisterBlack] text-lg group-hover:text-black/80 transition-colors">
+                      <span className="font-[CloisterBlack] text-sm sm:text-base lg:text-lg group-hover:text-black/80 transition-colors">
                         {item.label}
                       </span>
                     </Link>
@@ -151,9 +168,11 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
             </nav>
 
             {/* Social Links */}
-            <div className="border-t-2 border-black p-6 mt-auto">
-              <h3 className="font-[CloisterBlack] text-lg mb-4 text-center">Connect</h3>
-              <div className="flex justify-center gap-4">
+            <div className="border-t-2 border-black p-3 sm:p-4 lg:p-6 mt-auto">
+              <h3 className="font-[CloisterBlack] text-sm sm:text-base lg:text-lg mb-2 sm:mb-3 lg:mb-4 text-center">
+                Connect
+              </h3>
+              <div className="flex justify-center gap-2 sm:gap-3 lg:gap-4">
                 {socialItems.map((item, index) => (
                   <motion.a
                     key={item.label}
@@ -162,18 +181,19 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.2, y: -5 }}
                     whileTap={{ scale: 0.9 }}
-                    className="p-3 bg-black/10 rounded-full hover:bg-black/20 transition-colors"
+                    className="change-cursor p-2 sm:p-3 bg-black/10 rounded-full hover:bg-black/20 transition-colors"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 + index * 0.1 }}
                   >
-                    <item.icon size={20} />
+                    <item.icon
+                      size={18}
+                      className="sm:w-5 sm:h-5 lg:w-5 lg:h-5"
+                    />
                   </motion.a>
                 ))}
               </div>
             </div>
-
-          
           </motion.div>
         </>
       )}
@@ -181,4 +201,4 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
   );
 };
 
-export default Sidebar; 
+export default Sidebar;

@@ -137,25 +137,25 @@ const ProjectSection = () => {
       <Separator height={6} width={100} color="black" verticalSpacing={2} />
       <Separator height={1} width={100} color="black" />
       <motion.h1 
-        className="text-8xl p-4 font-[CloisterBlack]"
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl p-2 sm:p-4 font-[CloisterBlack]"
         variants={fadeInUp}
       >
         Side Projects
       </motion.h1>
       <Separator height={1} width={100} color="black" />
       <motion.div 
-        className="w-full flex-1 flex flex-col gap-6 p-4 py-12"
+        className="w-full flex-1 flex flex-col gap-3 sm:gap-4 lg:gap-6 p-2 sm:p-4 py-6 sm:py-8 lg:py-12"
         variants={staggerContainer}
       >
         <motion.div 
-          className="w-full flex-1 flex gap-6"
+          className="w-full flex-1 flex flex-col lg:flex-row gap-3 sm:gap-4 lg:gap-6"
           variants={staggerContainer}
         >
           <ProjectCard project={projects[0]} index={0} />
           <ProjectCard project={projects[1]} index={2} />
         </motion.div>
         <motion.div 
-          className="w-full flex gap-6"
+          className="w-full flex flex-col md:flex-row gap-3 sm:gap-4 lg:gap-6"
           variants={staggerContainer}
         >
           <ProjectCard project={projects[2]} index={1} />
@@ -209,12 +209,20 @@ const ProjectCard = ({
 
   return (
     <motion.div 
-      className="flex flex-1 flex-col border-[6px]  border-black outline-4 outline-offset-2 outline-black p-4 min-h-0"
+      className="flex flex-1 flex-col border-[2px] sm:border-[4px] lg:border-[6px] border-black outline-2 sm:outline-4 outline-offset-1 sm:outline-offset-2 outline-black p-2 sm:p-3 lg:p-4 min-h-0"
       variants={fadeInUp}
-    
+      whileHover={{
+        y: -5,
+        boxShadow: "-6px 6px 0px rgba(0, 0, 0, 0.8)",
+        transition: {
+          type: "spring" as const,
+          stiffness: 300,
+          damping: 30
+        }
+      }}
     >
       <motion.h2 
-        className="text-3xl text-black mb-2 font-[applewood]"
+        className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-black mb-2 font-[applewood]"
         variants={fadeInUp}
       >
         {project.name}
@@ -226,10 +234,8 @@ const ProjectCard = ({
         <motion.img
           src={getCurrentImage()}
           alt="project"
-          className="object-cover mb-2"
+          className="object-cover mb-2 w-full max-w-[300px] h-auto aspect-square"
           style={{
-            height: "300px",
-            width: "300px",
             filter: "sepia(0.5)"
           }}
           whileHover={{
@@ -243,22 +249,22 @@ const ProjectCard = ({
           }}
         />
         <motion.p 
-          className="text-lg text-gray-800 mb-2 flex-1 font-[clarendon]"
+          className="text-sm sm:text-base lg:text-lg text-gray-800 mb-2 flex-1 font-[clarendon]"
           variants={fadeInUp}
         >
           {project.description}
         </motion.p>
         <motion.div 
-          className="flex flex-wrap gap-2 mb-2"
+          className="flex flex-wrap gap-1 sm:gap-2 mb-2"
           variants={fadeInUp}
         >
-          <span className="text-lg text-gray-800 font-[clarendon]">
+          <span className="text-sm sm:text-base lg:text-lg text-gray-800 font-[clarendon]">
             Tech Stack:
           </span>
           {project.techStack.map((tech, index) => (
             <span
               key={index}
-              className="text-lg text-gray-800 font-[clarendon]"
+              className="text-sm sm:text-base lg:text-lg text-gray-800 font-[clarendon]"
             >
               {tech},
             </span>
@@ -272,10 +278,10 @@ const ProjectCard = ({
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block change-cursor bg-[#d7c6a7] text-black px-4 py-2 font-[FG-condensed] text-lg transition-colors duration-300 border-2 border-black"
+            className="inline-block change-cursor bg-[#d7c6a7] text-black px-2 sm:px-3 lg:px-4 py-1 sm:py-2 font-[applewood] text-sm sm:text-base lg:text-lg transition-colors duration-300 border-2 border-black"
             whileHover={{
               scale: 1.05,
-              boxShadow: "-12px 8px 0px rgba(0, 0, 0, 1)",
+              boxShadow: "-8px 5px 0px rgba(0, 0, 0, 1)",
               transition: {
                 type: "spring" as const,
                 stiffness: 400,
@@ -287,11 +293,11 @@ const ProjectCard = ({
           </motion.a>
         </motion.div>
         <motion.div 
-          className="flex justify-between items-center mt-4 pt-4 border-t-2 border-black text-xs text-[#666] font-[clarendon]"
+          className="flex justify-between items-center mt-2 sm:mt-3 lg:mt-4 pt-2 sm:pt-3 lg:pt-4 border-t-2 border-black text-xs text-[#666] font-[clarendon]"
           variants={fadeInUp}
         >
-          <span>★ PREMIUM QUALITY ★</span>
-          <span>{project.techStack.length} TECHNOLOGIES</span>
+          <span className="text-xs">★ PREMIUM QUALITY ★</span>
+          <span className="text-xs">{project.techStack.length} TECHNOLOGIES</span>
         </motion.div>
       </motion.div>
     </motion.div>

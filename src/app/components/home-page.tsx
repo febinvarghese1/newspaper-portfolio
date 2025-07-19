@@ -9,7 +9,7 @@ import FooterSection from "./footer-section";
 
 const HomePage = () => {
   return (
-    <section className="w-full max-w-[1800px] h-screen">
+    <section className="w-full max-w-[1800px] min-h-screen">
       <HeaderSection />
       <IssueSection />
       <HeroContent />

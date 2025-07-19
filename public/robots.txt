@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Disallow sensitive areas
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /_next/
+Disallow: /src/
+Disallow: /node_modules/
+
+# Sitemap
+Sitemap: https://febinvarghese.dev/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 2 
