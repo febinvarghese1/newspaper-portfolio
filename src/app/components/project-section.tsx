@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import { motion } from "framer-motion";
 import Separator from "./separator";
 import Rose from "@/assets/images/illustrations/rose.png";
 import Dancers from "@/assets/images/illustrations/dancers.png";
@@ -45,7 +48,7 @@ const projects: Project[] = [
       "PostgreSQL",
       "OpenAI"
     ],
-    link: "https://edently.in",
+    link: "https://edenly.in",
     progress: "In Progress"
   },
   {
@@ -99,25 +102,68 @@ const projects: Project[] = [
 
 
 const ProjectSection = () => {
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        type: "spring" as const,
+        stiffness: 100,
+        damping: 20,
+        duration: 0.8
+      }
+    }
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+
   return (
-    <section className="w-full flex flex-col">
+    <motion.section 
+      className="w-full flex flex-col"
+      initial="hidden"
+      animate="visible"
+      variants={staggerContainer}
+    >
       <Separator height={6} width={100} color="black" verticalSpacing={2} />
       <Separator height={1} width={100} color="black" />
-      <h1 className="text-8xl p-4 font-[CloisterBlack]">Side Projects</h1>
+      <motion.h1 
+        className="text-8xl p-4 font-[CloisterBlack]"
+        variants={fadeInUp}
+      >
+        Side Projects
+      </motion.h1>
       <Separator height={1} width={100} color="black" />
-      <div className="w-full flex-1 flex flex-col gap-6 p-4 py-12">
-        <div className="w-full flex-1 flex gap-6">
+      <motion.div 
+        className="w-full flex-1 flex flex-col gap-6 p-4 py-12"
+        variants={staggerContainer}
+      >
+        <motion.div 
+          className="w-full flex-1 flex gap-6"
+          variants={staggerContainer}
+        >
           <ProjectCard project={projects[0]} index={0} />
-
           <ProjectCard project={projects[1]} index={2} />
-        </div>
-        <div className="w-full flex gap-6">
+        </motion.div>
+        <motion.div 
+          className="w-full flex gap-6"
+          variants={staggerContainer}
+        >
           <ProjectCard project={projects[2]} index={1} />
           <ProjectCard project={projects[3]} index={4} />
           <ProjectCard project={projects[4]} index={2} />
-        </div>
-      </div>
-    </section>
+        </motion.div>
+      </motion.div>
+    </motion.section>
   );
 };
 
@@ -128,11 +174,24 @@ const ProjectCard = ({
   project: Project;
   index: number;
 }) => {
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        type: "spring" as const,
+        stiffness: 100,
+        damping: 20,
+        delay: index * 0.1
+      }
+    }
+  };
+
   const getCurrentImage = () => {
     switch (index) {
       case 0:
         return Weaver.src;
-
       case 1:
         return Dancers.src;
       case 2:
@@ -149,25 +208,50 @@ const ProjectCard = ({
   };
 
   return (
-    <div className="flex flex-1 flex-col border-[6px] p-7 border-black outline-4 outline-offset-2 outline-black p-4min-h-0">
-      <h2 className="text-3xl  text-black mb-2 font-[applewood]">
+    <motion.div 
+      className="flex flex-1 flex-col border-[6px]  border-black outline-4 outline-offset-2 outline-black p-4 min-h-0"
+      variants={fadeInUp}
+    
+    >
+      <motion.h2 
+        className="text-3xl text-black mb-2 font-[applewood]"
+        variants={fadeInUp}
+      >
         {project.name}
-      </h2>
-      <div className="flex-1 flex flex-col items-center min-h-0">
-        <img
+      </motion.h2>
+      <motion.div 
+        className="flex-1 flex flex-col items-center min-h-0"
+        variants={fadeInUp}
+      >
+        <motion.img
           src={getCurrentImage()}
           alt="project"
-          className=" object-cover mb-2"
+          className="object-cover mb-2"
           style={{
             height: "300px",
             width: "300px",
             filter: "sepia(0.5)"
           }}
+          whileHover={{
+            scale: 1.05,
+            filter: "sepia(0.3)",
+            transition: {
+              type: "spring" as const,
+              stiffness: 300,
+              damping: 20
+            }
+          }}
         />
-        <p className="text-lg text-gray-800 mb-2 flex-1 font-[clarendon]">
+        <motion.p 
+          className="text-lg text-gray-800 mb-2 flex-1 font-[clarendon]"
+          variants={fadeInUp}
+        >
           {project.description}
-        </p>
-        <div className="flex flex-wrap gap-2 mb-2">
+        </motion.p>
+        <motion.div 
+          className="flex flex-wrap gap-2 mb-2"
+          variants={fadeInUp}
+        >
           <span className="text-lg text-gray-800 font-[clarendon]">
             Tech Stack:
           </span>
@@ -179,23 +263,38 @@ const ProjectCard = ({
               {tech},
             </span>
           ))}
-        </div>
-        <div className="text-center change-cursor ">
-          <a
+        </motion.div>
+        <motion.div 
+          className="text-center change-cursor"
+          variants={fadeInUp}
+        >
+          <motion.a
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block change-cursor  bg-black text-white px-4 py-2 font-[FG-condensed] text-lg hover:bg-gray-800 transition-colors duration-300 border-2 border-black hover:border-gray-800"
+            className="inline-block change-cursor bg-[#d7c6a7] text-black px-4 py-2 font-[FG-condensed] text-lg transition-colors duration-300 border-2 border-black"
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "-12px 8px 0px rgba(0, 0, 0, 1)",
+              transition: {
+                type: "spring" as const,
+                stiffness: 400,
+                damping: 20
+              }
+            }}
           >
             VIEW PROJECT →
-          </a>
-        </div>
-        <div className="flex justify-between items-center mt-4 pt-4 border-t-2 border-black text-xs text-[#666] font-[clarendon]">
+          </motion.a>
+        </motion.div>
+        <motion.div 
+          className="flex justify-between items-center mt-4 pt-4 border-t-2 border-black text-xs text-[#666] font-[clarendon]"
+          variants={fadeInUp}
+        >
           <span>★ PREMIUM QUALITY ★</span>
           <span>{project.techStack.length} TECHNOLOGIES</span>
-        </div>
-      </div>
-    </div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 };
 
