@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import JsonLd from "./components/json-ld";
+import NameLogoJpeg from "@/assets/images/name-logo.jpeg";
+import NameLogoIco from "@/assets/images/name-logo.ico";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,7 +49,7 @@ export const metadata: Metadata = {
     description: 'Portfolio of Febin Varghese, a passionate UI/UX developer and frontend specialist.',
     images: [
       {
-        url: '/name-logo.jpeg',
+        url: NameLogoJpeg.src,
         width: 1200,
         height: 630,
         alt: 'Febin Varghese Portfolio',
@@ -58,7 +60,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Febin Varghese - UI/UX Developer & Frontend Specialist',
     description: 'Portfolio of Febin Varghese, a passionate UI/UX developer and frontend specialist.',
-    images: ['/name-logo.jpeg'],
+    images: [NameLogoJpeg.src],
   },
   robots: {
     index: true,
@@ -80,9 +82,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/name-logo.ico" sizes="any" />
-        <link rel="icon" href="/name-logo.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href={NameLogoIco.src} sizes="any" />
+        <link rel="apple-touch-icon" href={NameLogoJpeg.src} />
         <meta name="theme-color" content="#f5f5dc" />
         <meta name="msapplication-TileColor" content="#f5f5dc" />
         <JsonLd />
