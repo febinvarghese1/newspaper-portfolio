@@ -1,19 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import JsonLd from "./components/json-ld";
-import NameLogoJpeg from "@/assets/images/name-logo.jpeg";
-import NameLogoIco from "@/assets/images/name-logo.ico";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"]
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"]
-});
 
 export const metadata: Metadata = {
   title: "Febin Varghese - UI/UX Developer & Frontend Specialist",
@@ -28,30 +14,22 @@ export const metadata: Metadata = {
     "Web Developer",
     "Portfolio",
     "UI/UX Design",
-    "Frontend Development"
+    "Frontend Development",
+    "TypeScript",
+    "Tailwind CSS"
   ],
   authors: [{ name: "Febin Varghese" }],
-  creator: "Febin Varghese",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false
-  },
+  robots: "index, follow",
   metadataBase: new URL("https://febinvarghese.dev"),
-  alternates: {
-    canonical: "/"
-  },
   openGraph: {
     type: "website",
-    locale: "en_US",
     url: "https://febinvarghese.dev",
-    siteName: "Febin Varghese Portfolio",
     title: "Febin Varghese - UI/UX Developer & Frontend Specialist",
     description:
       "Portfolio of Febin Varghese, a passionate UI/UX developer and frontend specialist.",
     images: [
       {
-        url: NameLogoJpeg.src,
+        url: "/images/name-logo.jpeg",
         width: 1200,
         height: 630,
         alt: "Febin Varghese Portfolio"
@@ -63,17 +41,13 @@ export const metadata: Metadata = {
     title: "Febin Varghese - UI/UX Developer & Frontend Specialist",
     description:
       "Portfolio of Febin Varghese, a passionate UI/UX developer and frontend specialist.",
-    images: [NameLogoJpeg.src]
+    images: ["/images/name-logo.jpeg"]
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "standard",
-      "max-snippet": -1
-    }
+  icons: {
+    icon: "/images/name-logo.ico"
+  },
+  other: {
+    canonical: "https://febinvarghese.dev"
   }
 };
 
@@ -85,11 +59,34 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href={NameLogoIco.src} sizes="any" />
-        <link rel="apple-touch-icon" href={NameLogoJpeg.src} />
-        <meta name="theme-color" content="#f5f5dc" />
-        <meta name="msapplication-TileColor" content="#f5f5dc" />
-        <JsonLd />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Febin Varghese",
+              url: "https://febinvarghese.dev",
+              image: "https://febinvarghese.dev/name-logo.jpeg",
+              description:
+                "Passionate UI/UX developer and frontend specialist crafting compelling interfaces and experiences.",
+              jobTitle: "UI/UX Developer & Frontend Specialist",
+              knowsAbout: [
+                "UI/UX Design",
+                "Frontend Development",
+                "React",
+                "Next.js",
+                "TypeScript",
+                "Tailwind CSS"
+              ],
+              sameAs: [
+                "https://github.com/febinvarghese1",
+                "https://linkedin.com/in/febinvarghese"
+              ]
+            })
+          }}
+        />
+
         <script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
@@ -107,11 +104,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
