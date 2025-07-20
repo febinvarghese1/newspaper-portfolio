@@ -21,7 +21,7 @@ const BlogPage = () => {
     }
   ];
 
-  const categories = ["All", "CSS"];
+
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
@@ -135,11 +135,22 @@ const BlogPage = () => {
   );
 };
 
+interface BlogPost {
+  id: number;
+  title: string;
+  excerpt: string;
+  date: string;
+  readTime: string;
+  category: string;
+  slug: string;
+  featured: boolean;
+}
+
 const BlogCard = ({
   post,
   index
 }: {
-  post: any;
+  post: BlogPost;
   index: number;
 }) => {
   const fadeInUp = {
