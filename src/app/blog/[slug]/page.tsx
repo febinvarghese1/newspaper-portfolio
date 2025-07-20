@@ -24,10 +24,10 @@ const BlogPostPage = ({ params }: BlogPostPageProps) => {
       category: "CSS",
       excerpt: "A comprehensive guide to the various methods of centering elements in CSS, from the classic flexbox approach to modern grid techniques and everything in between.",
       content: `
-        <p class="mb-6">Centering elements in CSS is one of the most fundamental yet frequently asked questions in web development. Whether you're a beginner or an experienced developer, understanding the different methods and when to use each one is crucial for creating well-structured layouts.</p>
+        <p class="mb-6">Centering elements in CSS is one of the most fundamental yet frequently asked questions in web development. Whether you&apos;re a beginner or an experienced developer, understanding the different methods and when to use each one is crucial for creating well-structured layouts.</p>
 
         <h2 class="text-2xl font-[clarendon] font-bold mb-4 mt-8">1. Flexbox Method (Most Popular)</h2>
-        <p class="mb-6">Flexbox is the modern, go-to solution for centering elements. It's flexible, intuitive, and works in both horizontal and vertical directions.</p>
+        <p class="mb-6">Flexbox is the modern, go-to solution for centering elements. It&apos;s flexible, intuitive, and works in both horizontal and vertical directions.</p>
         
         <div class="bg-[#f5f5dc] border-[2px] border-black text-black p-4 rounded-lg mb-6">
           <code class="text-sm">
@@ -136,7 +136,7 @@ const BlogPostPage = ({ params }: BlogPostPageProps) => {
         <ul class="list-disc list-inside mb-6 space-y-2">
           <li>Prefer Flexbox for most centering needs</li>
           <li>Use Grid for complex layouts</li>
-          <li>Consider the element's display type</li>
+          <li>Consider the element&apos;s display type</li>
           <li>Test across different screen sizes</li>
           <li>Keep fallbacks for older browsers</li>
         </ul>
