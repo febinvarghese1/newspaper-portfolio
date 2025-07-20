@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     description: 'Portfolio of Febin Varghese, a passionate UI/UX developer and frontend specialist.',
     images: [
       {
-        url: '/og-image.png',
+        url: '/name-logo.jpeg',
         width: 1200,
         height: 630,
         alt: 'Febin Varghese Portfolio',
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Febin Varghese - UI/UX Developer & Frontend Specialist',
     description: 'Portfolio of Febin Varghese, a passionate UI/UX developer and frontend specialist.',
-    images: ['/twitter-image.png'],
+    images: ['/name-logo.jpeg'],
   },
   robots: {
     index: true,
@@ -80,8 +80,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/name-logo.ico" sizes="any" />
+        <link rel="icon" href="/name-logo.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#f5f5dc" />
         <meta name="msapplication-TileColor" content="#f5f5dc" />

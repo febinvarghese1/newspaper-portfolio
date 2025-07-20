@@ -2,34 +2,134 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import BackgroundImage from '@/assets/images/background-new.png';
+import Monitor from "@/assets/images/illustrations/monitor.jpg";
+import Rose from "@/assets/images/illustrations/rose.png";
+import Band from "@/assets/images/illustrations/band.png";
+import Grapes from "@/assets/images/illustrations/grapes.png";
+import House from "@/assets/images/illustrations/house.png";
+import Factory from "@/assets/images/illustrations/new-factory.png";
+import Weaver from "@/assets/images/illustrations/weaver.png";
+import SingleRose from "@/assets/images/illustrations/single-rose.png";
+import CompanyLogo from "@/assets/images/illustrations/company-logo.png";
+import Coding from "@/assets/images/illustrations/body-builder.png";
+import Award from "@/assets/images/illustrations/gramaphone.png";
+import heroImage from "@/assets/images/image.png";
 
 interface LoaderProps {
   onLoadingComplete: () => void;
 }
 
 export default function Loader({ onLoadingComplete }: LoaderProps) {
-    const [loadingProgress, setLoadingProgress] = useState(0);
+  const [loadingProgress, setLoadingProgress] = useState(0);
+  const [loadingStatus, setLoadingStatus] = useState('Initializing...');
 
   useEffect(() => {
-    let progress = 0;
+    const loadAssets = async () => {
+      try {
+        // All images that need to be preloaded
+        const images = [
+          BackgroundImage.src,
+          Monitor.src,
+          Rose.src,
+          Band.src,
+          Grapes.src,
+          House.src,
+          Factory.src,
+          Weaver.src,
+          SingleRose.src,
+          CompanyLogo.src,
+          Coding.src,
+          Award.src,
+          heroImage.src
+        ];
 
-    const interval = setInterval(() => {
-      progress += Math.random() * 20;
-      
-      if (progress >= 100) {
-        progress = 100;
-        clearInterval(interval);
-        
+        const totalAssets = images.length + 1; // +1 for fonts
+        let loadedAssets = 0;
+
+        const updateProgress = () => {
+          loadedAssets++;
+          const progress = Math.min((loadedAssets / totalAssets) * 100, 100);
+          setLoadingProgress(progress);
+        };
+
+        // Load all images with timeout
+        setLoadingStatus('Loading images...');
+        const imagePromises = images.map((src) => {
+          return new Promise<void>((resolve) => {
+            const img = new Image();
+            const timeout = setTimeout(() => {
+              console.warn(`Image load timeout: ${src}`);
+              updateProgress();
+              resolve();
+            }, 10000); // 10 second timeout per image
+
+            img.onload = () => {
+              clearTimeout(timeout);
+              updateProgress();
+              resolve();
+            };
+            img.onerror = () => {
+              clearTimeout(timeout);
+              console.warn(`Image failed to load: ${src}`);
+              updateProgress();
+              resolve();
+            };
+            img.src = src;
+          });
+        });
+
+        // Wait for all images to load with overall timeout
+        await Promise.race([
+          Promise.all(imagePromises),
+          new Promise(resolve => setTimeout(resolve, 15000)) // 15 second overall timeout
+        ]);
+
+        // Load fonts with timeout
+        setLoadingStatus('Loading fonts...');
+        try {
+          // Wait for fonts with timeout
+          await Promise.race([
+            document.fonts.ready,
+            new Promise(resolve => setTimeout(resolve, 10000)) // 10 second timeout
+          ]);
+          
+          // Additional check for specific custom fonts
+          const customFonts = [
+            'CloisterBlack',
+            'FG-condensed', 
+            'applewood',
+            'clarendon',
+            'Lucian'
+          ];
+          
+          // Wait a bit more to ensure fonts are fully loaded
+          await new Promise(resolve => setTimeout(resolve, 800));
+          
+          updateProgress();
+          setLoadingStatus('Ready!');
+        } catch (error) {
+          console.warn('Fonts failed to load:', error);
+          updateProgress();
+          setLoadingStatus('Ready!');
+        }
+
         // Small delay to show 100% before hiding
         setTimeout(() => {
           onLoadingComplete();
-        }, 800);
+        }, 500);
+      } catch (error) {
+        console.error('Loader error:', error);
+        // Fallback: show page anyway after a reasonable time
+        setLoadingProgress(100);
+        setLoadingStatus('Ready!');
+        setTimeout(() => {
+          onLoadingComplete();
+        }, 1000);
       }
-      
-      setLoadingProgress(progress);
-    }, 300);
+    };
 
-    return () => clearInterval(interval);
+    loadAssets();
   }, [onLoadingComplete]);
 
   const textVariants = {
@@ -135,6 +235,14 @@ export default function Loader({ onLoadingComplete }: LoaderProps) {
             transition={{ delay: 0.8 }}
           >
             {Math.round(loadingProgress)}%
+          </motion.p>
+          <motion.p
+            className="font-[clarendon] text-xs sm:text-sm md:text-base lg:text-lg mt-1 sm:mt-2 text-gray-600"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+          >
+            {loadingStatus}
           </motion.p>
         </motion.div>
       </div>

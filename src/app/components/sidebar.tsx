@@ -76,13 +76,15 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
     { icon: User, label: "About", href: "/#about" },
     { icon: Briefcase, label: "Experience", href: "/#experience" },
     { icon: FileText, label: "Projects", href: "/#projects" },
+    { icon: FileText, label: "Blog", href: "/blog" },
     { icon: Mail, label: "Contact", href: "/#contact" }
   ];
 
   const socialItems = [
-    { icon: Github, label: "GitHub", href: "https://github.com" },
-    { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
-    { icon: Twitter, label: "Twitter", href: "https://twitter.com" }
+    { icon: Github, label: "GitHub", href: "https://github.com/febinvarghese1" },
+    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/febin-varghese-0530191b8/" },
+    { icon: Twitter, label: "Twitter", href: "https://x.com/febv388" },
+    {icon: Mail, label: "Email", href: "mailto:febv183@gmail.com"}
   ];
 
   return (
@@ -146,7 +148,24 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                   >
                     <Link
                       href={item.href}
-                      onClick={onClose}
+                      onClick={(e) => {
+                        onClose();
+                        
+                        // If it's an internal link (starts with /#), handle smooth scrolling
+                        if (item.href.startsWith('/#')) {
+                          e.preventDefault();
+                          const targetId = item.href.replace('/#', '');
+                          const targetElement = document.getElementById(targetId);
+                          
+                          if (targetElement) {
+                            targetElement.scrollIntoView({
+                              behavior: 'smooth',
+                              block: 'start'
+                            });
+                          }
+                        }
+                        // If it's an external page link (like /blog), let it navigate normally
+                      }}
                       className="flex  change-cursor items-center gap-2 sm:gap-3 lg:gap-4 p-2 sm:p-3 lg:p-4 rounded-lg hover:bg-black/10 transition-colors group"
                     >
                       <motion.div

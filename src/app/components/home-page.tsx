@@ -14,11 +14,19 @@ const HomePage = () => {
     <section className="w-full max-w-[1800px] min-h-screen">
       <HeaderSection />
       <IssueSection />
-      <HeroContent />
+      <div id="about">
+        <HeroContent />
+      </div>
       <QuoteSection />
-      <ExperienceSection />
-      <ProjectSection />
-      <FooterSection />
+      <div id="experience">
+        <ExperienceSection />
+      </div>
+      <div id="projects">
+        <ProjectSection />
+      </div>
+      <div id="contact">
+        <FooterSection />
+      </div>
     </section>
   );
 };
