@@ -20,10 +20,10 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Febin Varghese" }],
   robots: "index, follow",
-  metadataBase: new URL("https://febinvarghese.dev"),
+  metadataBase: new URL("https://febin.vercel.app"),
   openGraph: {
     type: "website",
-    url: "https://febinvarghese.dev",
+    url: "https://febin.vercel.app",
     title: "Febin Varghese - UI/UX Developer & Frontend Specialist",
     description:
       "Portfolio of Febin Varghese, a passionate UI/UX developer and frontend specialist.",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     icon: "/images/name-logo.ico"
   },
   other: {
-    canonical: "https://febinvarghese.dev"
+    canonical: "https://febin.vercel.app"
   }
 };
 
@@ -66,8 +66,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Febin Varghese",
-              url: "https://febinvarghese.dev",
-              image: "https://febinvarghese.dev/name-logo.jpeg",
+              url: "https://febin.vercel.app",
+              image: "https://febin.vercel.app/images/name-logo.jpeg",
               description:
                 "Passionate UI/UX developer and frontend specialist crafting compelling interfaces and experiences.",
               jobTitle: "UI/UX Developer & Frontend Specialist",
