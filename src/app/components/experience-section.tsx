@@ -69,7 +69,7 @@ const ExperienceSection = () => {
             ))}
           </div>
         </div>
-        <div className="hidden xl:block w-[6px] bg-black self-stretch mx-4" />
+        <div className="hidden xl:block w-[6px] bg-black self-stretch" />
         <div className="w-full xl:w-1/2">
           <div className="flex flex-col gap-4">
             <SkillsCard />

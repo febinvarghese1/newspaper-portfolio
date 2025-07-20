@@ -4,9 +4,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import Separator from "./separator";
 import Rose from "@/assets/images/illustrations/rose.png";
-import Dancers from "@/assets/images/illustrations/dancers.png";
-import Gramaphone from "@/assets/images/illustrations/gramaphone.png";
-import Lawyer from "@/assets/images/illustrations/lawyer.png";
+import Band from "@/assets/images/illustrations/band.png";
+import Grapes from "@/assets/images/illustrations/grapes.png";
+import House from "@/assets/images/illustrations/house.png";
+import Factory from "@/assets/images/illustrations/new-factory.png";
 import Weaver from "@/assets/images/illustrations/weaver.png";
 import SingleRose from "@/assets/images/illustrations/single-rose.png";
 
@@ -159,8 +160,8 @@ const ProjectSection = () => {
           variants={staggerContainer}
         >
           <ProjectCard project={projects[2]} index={1} />
-          <ProjectCard project={projects[3]} index={4} />
-          <ProjectCard project={projects[4]} index={2} />
+          <ProjectCard project={projects[3]} index={3} />
+          <ProjectCard project={projects[4]} index={4} />
         </motion.div>
       </motion.div>
     </motion.section>
@@ -193,17 +194,17 @@ const ProjectCard = ({
       case 0:
         return Weaver.src;
       case 1:
-        return Dancers.src;
+        return Factory.src;
       case 2:
-        return Gramaphone.src;
+        return Grapes.src;
       case 3:
-        return Lawyer.src;
+        return House.src;
       case 4:
-        return Rose.src;
+        return Band.src;
       case 5:
         return SingleRose.src;
       default:
-        return Rose.src;
+        return Band.src;
     }
   };
 
