@@ -118,15 +118,12 @@ const BlogPage = () => {
 
         {/* Blog Posts Grid */}
         <motion.div 
-          className="w-full flex-1 flex flex-col gap-3 sm:gap-4 lg:gap-6 p-2 sm:p-4 py-6 sm:py-8 lg:py-12"
+          className="w-full flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 p-2 sm:p-4 py-6 sm:py-8 lg:py-12"
           variants={staggerContainer}
         >
-          <motion.div 
-            className="w-full flex-1 flex flex-col lg:flex-row gap-3 sm:gap-4 lg:gap-6"
-            variants={staggerContainer}
-          >
-            <BlogCard post={allBlogPosts[0]} index={0} />
-          </motion.div>
+          {allBlogPosts.map((post, idx) => (
+            <BlogCard post={post} index={idx} key={post.id} />
+          ))}
         </motion.div>
 
         <Separator height={5} width={100} color="black" verticalSpacing={4} />
@@ -171,7 +168,7 @@ const BlogCard = ({
 
   return (
     <motion.div 
-      className="flex flex-1 flex-col max-w-1/3 border-[2px] sm:border-[4px] lg:border-[6px] border-black outline-2 sm:outline-4 outline-offset-1 sm:outline-offset-2 outline-black p-2 sm:p-3 lg:p-4 min-h-0"
+      className="flex flex-col w-full border-[2px] sm:border-[4px] lg:border-[6px] border-black outline-2 sm:outline-4 outline-offset-1 sm:outline-offset-2 outline-black p-2 sm:p-3 lg:p-4 min-h-0"
       variants={fadeInUp}
       whileHover={{
         y: -5,
