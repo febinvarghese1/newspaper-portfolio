@@ -8,14 +8,11 @@ const QuoteSection = () => {
       <Separator height={5} width={100} color="black" verticalSpacing={2} />
       <Separator height={1} width={100} color="black" />
       
-      {/* Responsive Quote */}
       <h1 className="text-4xl text-center sm:text-6xl md:text-8xl lg:text-[10rem] leading-[1] font-[lucian] pt-8 sm:pt-10 lg:pt-12 pb-12 sm:pb-16 lg:pb-20 px-2">
         "Pixels are our paint. The browser, our canvas." - FV
       </h1>
       
-      {/* Responsive Layout Container */}
       <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-10 justify-center">
-        {/* Left Column - Image and First Article */}
         <div className="flex flex-col gap-4 sm:gap-6 w-full xl:w-auto">
           <img
             src={Monitor.src}
@@ -68,8 +65,7 @@ const QuoteSection = () => {
             </div>
           </div>
         </div>
-
-        {/* Right Column - Second Article */}
+    
           <div className="font-[clarendon] w-full xl:w-auto text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
           <p className="mb-4 sm:mb-6">
             In this light, the frontend isn't just where the product ends. It's

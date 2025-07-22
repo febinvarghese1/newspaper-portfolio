@@ -17,7 +17,6 @@ const HeaderSection = () => {
   return (
     <>
       <header className="w-full p-2 sm:p-4 h-auto flex flex-row items-center justify-between gap-4">
-        {/* Special Edition - Hidden on smaller screens */}
         <div className="hidden lg:flex items-center justify-center text-[#d9c7a6]">
           <div className="flex flex-col items-center justify-center">
             <p className="text-lg sm:text-xl md:text-2xl font-[applewood] px-2 py-2 sm:py-3 bg-black">
@@ -51,7 +50,6 @@ const HeaderSection = () => {
       <Separator height={1} width={100} color="black" />
       <Separator height={10} width={100} color="black" verticalSpacing={4} />
       
-      {/* Sidebar */}
       <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
     </>
   );

@@ -7,7 +7,6 @@ const FooterSection = () => {
       <Separator height={5} width={100} color="black" verticalSpacing={2} />
       <Separator height={1} width={100} color="black" />
       <div className="px-2 sm:px-4 py-4 sm:py-6 lg:py-8 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-        {/* Left Ad Style Block */}
         <div className="border-2 border-black border-dashed p-3 sm:p-4 flex flex-col items-center">
           <span className="text-lg sm:text-xl lg:text-2xl font-[CloisterBlack] mb-2">
             Published by
@@ -17,7 +16,6 @@ const FooterSection = () => {
             {`Your Neighbourhood Developer`}
           </span>
         </div>
-        {/* Center Copyright & Divider */}
         <div className="flex flex-col items-center justify-center">
           <div className="w-full h-1 bg-black mb-2" />
           <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-[CloisterBlack] tracking-widest mb-2 text-center">
@@ -27,8 +25,7 @@ const FooterSection = () => {
             All rights reserved. Printed in India.
           </span>
           <div className="w-full h-1 bg-black mt-2" />
-        </div>
-        {/* Right Ad Style Block */}
+        </div>  
         <div
           className="border-2 sm:border-4 lg:border-[6px] text-black border-black p-3 sm:p-4 flex flex-col items-center"
           style={{

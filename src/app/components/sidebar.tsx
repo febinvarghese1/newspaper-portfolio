@@ -91,7 +91,6 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Overlay */}
           <motion.div
             className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
             variants={overlayVariants}
@@ -101,7 +100,6 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
             onClick={onClose}
           />
 
-          {/* Sidebar */}
           <motion.div
             className="fixed right-0 top-0 h-screen w-full max-w-[320px] sm:max-w-[375px] md:max-w-[425px] lg:w-80 bg-gradient-to-b from-[#d9c7a6] to-[#f5f5dc] shadow-2xl z-50 border-l-2 sm:border-l-4 border-black flex flex-col overflow-hidden"
             variants={sidebarVariants}
@@ -114,7 +112,6 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
               damping: 30
             }}
           >
-            {/* Header */}
             <div className="flex items-center justify-between p-3 sm:p-4 lg:p-6 border-b-2 sm:border-b-4 border-black">
               <div className="flex flex-col items-center">
                 <p className="text-sm sm:text-base lg:text-xl font-[applewood] px-1 sm:px-2 py-1 bg-black text-[#d9c7a6]">
@@ -134,7 +131,6 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
               </motion.button>
             </div>
 
-            {/* Navigation */}
             <nav className="flex-1 overflow-y-auto p-3 sm:p-4 lg:p-6">
               <div className="space-y-2 sm:space-y-3 lg:space-y-4">
                 {navigationItems.map((item, index) => (
@@ -151,7 +147,6 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                       onClick={(e) => {
                         onClose();
                         
-                        // If it's an internal link (starts with /#), handle smooth scrolling
                         if (item.href.startsWith('/#')) {
                           e.preventDefault();
                           const targetId = item.href.replace('/#', '');
@@ -163,8 +158,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                               block: 'start'
                             });
                           }
-                        }
-                        // If it's an external page link (like /blog), let it navigate normally
+                        } 
                       }}
                       className="flex  change-cursor items-center gap-2 sm:gap-3 lg:gap-4 p-2 sm:p-3 lg:p-4 rounded-lg hover:bg-black/10 transition-colors group"
                     >
@@ -186,7 +180,6 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
               </div>
             </nav>
 
-            {/* Social Links */}
             <div className="border-t-2 border-black p-3 sm:p-4 lg:p-6 mt-auto">
               <h3 className="font-[CloisterBlack] text-sm sm:text-base lg:text-lg mb-2 sm:mb-3 lg:mb-4 text-center">
                 Connect

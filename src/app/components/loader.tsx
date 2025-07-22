@@ -27,7 +27,6 @@ export default function Loader({ onLoadingComplete }: LoaderProps) {
   useEffect(() => {
     const loadAssets = async () => {
       try {
-        // All images that need to be preloaded
         const images = [
           BackgroundImage.src,
           Monitor.src,
@@ -44,7 +43,7 @@ export default function Loader({ onLoadingComplete }: LoaderProps) {
           heroImage.src
         ];
 
-        const totalAssets = images.length + 1; // +1 for fonts
+        const totalAssets = images.length + 1; 
         let loadedAssets = 0;
 
         const updateProgress = () => {
@@ -53,7 +52,6 @@ export default function Loader({ onLoadingComplete }: LoaderProps) {
           setLoadingProgress(progress);
         };
 
-        // Load all images with timeout
         setLoadingStatus('Loading images...');
         const imagePromises = images.map((src) => {
           return new Promise<void>((resolve) => {
@@ -62,7 +60,7 @@ export default function Loader({ onLoadingComplete }: LoaderProps) {
               console.warn(`Image load timeout: ${src}`);
               updateProgress();
               resolve();
-            }, 10000); // 10 second timeout per image
+            }, 10000); 
 
             img.onload = () => {
               clearTimeout(timeout);
@@ -79,22 +77,19 @@ export default function Loader({ onLoadingComplete }: LoaderProps) {
           });
         });
 
-        // Wait for all images to load with overall timeout
         await Promise.race([
           Promise.all(imagePromises),
-          new Promise(resolve => setTimeout(resolve, 15000)) // 15 second overall timeout
+          new Promise(resolve => setTimeout(resolve, 15000)) 
         ]);
 
-        // Load fonts with timeout
         setLoadingStatus('Loading fonts...');
         try {
-          // Wait for fonts with timeout
+          
           await Promise.race([
             document.fonts.ready,
-            new Promise(resolve => setTimeout(resolve, 10000)) // 10 second timeout
+            new Promise(resolve => setTimeout(resolve, 10000)) 
           ]);
           
-          // Additional check for specific custom fonts
           const customFonts = [
             'CloisterBlack',
             'FG-condensed', 
@@ -103,7 +98,6 @@ export default function Loader({ onLoadingComplete }: LoaderProps) {
             'Lucian'
           ];
           
-          // Wait a bit more to ensure fonts are fully loaded
           await new Promise(resolve => setTimeout(resolve, 800));
           
           updateProgress();
@@ -114,13 +108,11 @@ export default function Loader({ onLoadingComplete }: LoaderProps) {
           setLoadingStatus('Ready!');
         }
 
-        // Small delay to show 100% before hiding
         setTimeout(() => {
           onLoadingComplete();
         }, 500);
       } catch (error) {
         console.error('Loader error:', error);
-        // Fallback: show page anyway after a reasonable time
         setLoadingProgress(100);
         setLoadingStatus('Ready!');
         setTimeout(() => {
