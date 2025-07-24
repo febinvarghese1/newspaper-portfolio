@@ -82,26 +82,14 @@ const HeroContent = () => {
               Web Development is More Than Code It's Digital Poetry
             </motion.h1>
             <motion.p
-              className="font-[clarendon] text-xs xs:text-sm sm:text-md  lg:text-xl text-wrap max-w-[900px] font-medium text-[#2b2a2a]"
+              className="font-[clarendon] px-2 sm:px-0 xs:text-sm sm:text-md lg:text-xl text-wrap max-w-[900px] font-medium text-[#2b2a2a]"
               variants={fadeInUp}
             >
-              {`${monthName}, ${day} ${year} — In an exclusive interview with our 
-            publication, local frontend developer Febin Varghese shared his 
-            unique perspective on the artistry behind modern web development. 
-            "There's a beautiful rhythm to writing code," Varghese explains, 
-            "where every line serves a purpose, every function tells a story, 
-            and every interface becomes a conversation between human and machine." 
-            With three years of experience crafting digital experiences, 
-            Varghese describes his work as a blend of technical precision 
-            and creative vision. "When I write React components or design 
-            with Figma, I'm not just building features—I'm creating moments 
-            of connection. The beauty lies in making complex technology feel 
-            effortless and intuitive." His philosophy centers on the belief 
-            that exceptional web development transcends mere functionality, 
-            becoming instead a form of digital craftsmanship that honors 
-            both the user's needs and the developer's artistic integrity.`}
+              {`${monthName}, ${day} ${year} — In an exclusive interview, frontend developer Febin Varghese shared his thoughts on the craft of web development. 
+  "There's a rhythm to writing code," he said. "Every line has meaning, every interface is a conversation." 
+  With three years of experience, Varghese blends technical skill with creativity, describing his work as more than just building features—it's about creating seamless, meaningful digital experiences. 
+  "Great design," he added, "should feel effortless, like it was always meant to be there."`}
             </motion.p>
-           
           </motion.div>
           <motion.div
             className="flex flex-col justify-between border-black w-full max-w-[280px] border-[2px] sm:border-[4px] xl:border-[6px] relative font-[clarendon]"

@@ -4,7 +4,7 @@ import Monitor from "@/assets/images/illustrations/monitor.jpg";
 
 const QuoteSection = () => {
   return (
-    <div className="w-full px-4 sm:px-6 lg:px-8">
+    <div className="w-full px-4 sm:px-6 lg:px-8 pb-20 md:pb-28">
       <Separator height={5} width={100} color="black" verticalSpacing={2} />
       <Separator height={1} width={100} color="black" />
       
@@ -30,73 +30,62 @@ const QuoteSection = () => {
 
             <div className="font-[clarendon] text-base sm:text-lg max-w-xl leading-relaxed">
               <p className="mb-4 sm:mb-6">
-                Somewhere between design and development, a quiet truth echoes
-                among frontend creators:{" "}
+                Somewhere between design and development, a quiet truth echoes:{" "}
                 <span className="font-bold italic">
                   "We shape with code, but it's in the browser that our work
                   truly breathes."
-                </span>
-                A simple idea, yet one that captures the soul of digital
-                craftsmanship.
+                </span>{" "}
+                A simple idea that captures the heart of digital craftsmanship.
               </p>
 
               <p className="mb-4 sm:mb-6">
-                Like sculptors of the screen, developers and designers work with
-                color, motion, and interaction. Not just to make things look
-                good, but to make them feel right. Every line of CSS, every bit
-                of layout logic, is part of a larger story being told. Visually,
-                responsively, intuitively.
+                Like screen sculptors, developers and designers use color,
+                motion, and interaction—not just to make things look good, but
+                to make them feel right. Every bit of layout or CSS is part of a
+                larger story told visually and intuitively.
               </p>
               
               <p className="mb-4 sm:mb-6">
-                The browser used to be just a window to the web. Now, it's where
-                design lives and breathes in real time. With HTML, CSS, and
-                JavaScript as our tools, the browser becomes a living canvas.
-                One where structure, style, and interaction blend to create
-                digital experiences that people not only use, but remember.
+                The browser is no longer just a window—it's where design lives.
+                With HTML, CSS, and JavaScript, we shape experiences people
+                remember. It's a canvas in motion.
               </p>
 
               <p className="mb-4 sm:mb-6">
-                This way of thinking blurs the line between engineering and
-                artistry. It's not just about writing functional code. It's
-                about composing feelings, guiding attention, and crafting
-                moments that click with users.
+                This mindset blurs the line between engineer and artist. It's
+                more than writing code—it's crafting moments, guiding focus, and
+                sparking connection.
               </p>
             </div>
           </div>
         </div>
     
-          <div className="font-[clarendon] w-full xl:w-auto text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
+        <div className="font-[clarendon] w-full xl:w-auto text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
           <p className="mb-4 sm:mb-6">
-            In this light, the frontend isn't just where the product ends. It's
-            where the experience begins. It's where code meets emotion, and
-            where the invisible becomes unforgettable.
+            Frontend isn’t where the product ends—it’s where the experience
+            begins. It’s where code meets emotion, and the invisible becomes
+            unforgettable.
           </p>
 
           <p className="mb-4 sm:mb-6">
-            A good interface isn't something people admire. It's something they
-            trust. The magic of frontend lies not in flashy animations, but in
-            the quiet assurance that everything just works. That every
-            interaction has been thought through. That someone cared enough to
-            sweat the small stuff.
+            Great interfaces aren’t flashy—they’re dependable. The magic of
+            frontend is in the small things, done right. When it works, it just
+            feels natural.
           </p>
 
           <p className="mb-4 sm:mb-6">
-            Frontend is empathy in code. It's anticipating frustration before it
-            happens. It's making sure a user never has to guess, never has to
-            reload, never feels lost. When done right, it's invisible—but deeply
-            felt.
+            Frontend is empathy in code. It's preventing frustration before it
+            starts, guiding users without effort. When done right, it
+            disappears—but leaves a mark.
           </p>
 
           <p className="mb-4 sm:mb-6">
-            And as technologies shift, frameworks come and go, this truth stays:
-            the best frontend developers don't just write UI—they write clarity.
-            They translate chaos into calm. They make the complex feel simple,
-            and the digital feel human.
+            Frameworks may change, but one truth stays: the best frontend
+            developers bring clarity. They simplify the complex and make tech
+            feel human.
           </p>
 
           <Separator height={2} width={100} color="black" verticalSpacing={4} />
-          <div className="pb-20" />
         </div>
       </div>
     </div>
